@@ -1,6 +1,6 @@
 # Offline Tierlist Maker with Steam Implementation
 
-A simple implementation of [Tierlists](https://knowyourmeme.com/memes/tier-lists) for fetching owned Steam games.
+A simple implementation of [Tierlists](https://github.com/silverweed/tiers) for fetching owned Steam games.
 ![image](./assets/image.png)
 
 ## Prerequisites
@@ -16,7 +16,7 @@ A simple implementation of [Tierlists](https://knowyourmeme.com/memes/tier-lists
 
 2. Install [Node.js](https://nodejs.org/en/download/prebuilt-binaries).
 
-3. Run the following command:
+3. Run the following command in the current directory:
 
    ```sh
    node server.js
