@@ -1,0 +1,197 @@
+body {
+	background-color: #333;
+	font-family: sans-serif;
+}
+
+.title {
+	color: #ddd;
+	font-size: 38px;
+	user-select: none;
+	text-align: center;
+	margin-bottom: 20px;
+	min-height: 38px;
+	cursor: pointer;
+}
+
+.title label {
+	cursor: pointer;
+}
+
+.title input {
+	display: none;
+	background: transparent;
+	border: 0px;
+	color: #ddd;
+	font-size: 38px;
+}
+
+.title input:focus {
+	background: #666;
+}
+
+.main-content {
+	display: flex;
+	flex-flow: column;
+}
+
+.tierlist span {
+	min-width: 100px;
+	min-height: 100px;
+	display: flex;
+	align-items: center;
+	flex-flow: row;
+	font-size: 30px;
+	font-family: sans-serif;
+	border: 0;
+	padding: 0;
+}
+
+.tierlist div.row {
+	border: 0px solid #666;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	display: flex;
+	user-select: none;
+}
+
+.tierlist div:last-child {
+	border-bottom-width: 1px !important;
+}
+
+.tierlist div.row:hover {
+	background-color: #666;
+}
+
+.tierlist div.row.drag-entered {
+	background-color: #888;
+}
+
+span.header {
+	justify-content: center;
+	align-self: stretch;
+	cursor: pointer;
+}
+
+span.header label {
+	cursor: pointer;
+}
+
+span.header input[type=text] {
+	display: none;
+	height: 50px;
+	font-size: 30px;
+	text-align: center;
+}
+
+span.items {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	justify-content: left;
+	pointer-events: none;
+	height: fit-content;
+}
+
+span.item {
+	pointer-events: auto;
+}
+
+.images {
+	display: flex;
+	border: 1px solid #666;
+	height: 300px;
+	overflow-y: auto;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	width: 100%;
+	align-content: flex-start;
+}
+
+.images.drag-entered {
+	background-color: #888;
+}
+
+img.draggable {
+	cursor: grab;
+	
+	height: 100px;
+}
+
+img.draggable:hover, .button:hover {
+	filter: brightness(0.6);
+}
+
+img.draggable.dragged, .button:active {
+	filter: brightness(0.4);
+}
+
+.button img {
+	user-select: none;
+}
+
+.bottom-container {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	margin-top: 15px;
+}
+
+.bottom-container input {
+	border: 0;
+	padding: 0;
+	display: none;
+}
+
+.bottom-container > div {
+	margin: 0;
+}
+
+.button {
+	border: 1px solid #666;
+	height: 100px;
+}
+
+.row-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-evenly;
+	opacity: 0.2;
+	transition: 200ms linear;
+}
+
+.row-buttons:hover {
+	opacity: 1;
+	transition: 200ms linear;
+}
+
+.buttons-container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 270px;
+}
+
+.gh-link {
+	position: absolute;
+	top: 5px;
+	color: #ccc;
+	text-decoration: none;
+}
+
+#trash {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 60px;
+	opacity: 0.4;
+}
+
+#trash:hover {
+	opacity: 1;
+}
+
+.hint {
+	font-style: italic;
+	font-size: small;
+	color: #ccc;
+}

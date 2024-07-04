@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' lang='en'/>
+    <title>Offline TierMaker</title>
+    <link rel='stylesheet' href='tiers.css'/>
+    <script src='tiers.js' async></script>
+    <! -- <script src='steam.js' async></script> -- >
+
+  </head>
+  <body>
+    <div class='title'>
+        <label class='title-label' for='title-input'>My TierList</label>
+        <input type='text' id='title-input' />
+    </div>
+    <a href='https://github.com/silverweed/tiers' class='gh-link'>GitHub</a>
+    <section class='main-content'>
+        
+        
+        
+            
+
+           
+        <div class='tierlist'> </div>
+       
+      
+
+        
+
+
+        <div class='bottom-container'>
+            <div class='buttons-container'>
+                <div class='button'>
+                    <label for='load-img-input'>
+                        <img src='plus.png' title='Add images'/>
+                    </label>
+                    <input id='load-img-input' type='file' accept='image/*' multiple/>
+                </div>
+                <div class='button'>
+                    <label for='button-steam'>
+                        <img src='steam.jpg' title='connect to steam'/>
+                    </label>
+                    <input id='button-steam' type='button'/>
+                </div>
+                <div class='button'>
+                    <label for='reset-list-input'>
+                        <img src='reset.png' title='Reset list'>
+                    </label>
+                    <input id='reset-list-input' type='button' />
+                </div>
+                <div class='button'>
+                    <label for='export-input'>
+                        <img src='export.png' title='Export'>
+                    </label>
+                    <input id='export-input' type='button' />
+                </div>
+                <div class='button'>
+                    <label for='import-input'>
+                        <img src='import.png' title='Import'/>
+                    </label>
+                    <input id='import-input' type='file' accept='.json' multiple/>
+                </div>
+            </div>
+            <section class='images'></section>
+        </div>
+        <p class='hint'>Hint: you can paste an image into this page to have it show up in the image list.</p>
+    </section>
+    <img id='trash' src='trash_bin.png' title='Delete image (drag it over here)'></img>
+  </body>
+</html>
