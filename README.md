@@ -12,7 +12,7 @@ A simple implementation of [Tierlists](https://github.com/silverweed/tiers) for 
 1. Edit `API_KEY` and `STEAM_ID` in `server.js`.
 
    - To get Steam's API key, visit [Steam API Key](https://steamcommunity.com/dev/apikey).
-   - To find your Steam ID, visit [Steam ID Finder](https://www.steamidfinder.com/) and retrieve the `steamID64`.
+   - To find your Steam ID, visit [Steam ID Finder](https://www.steamidfinder.com/) and retrieve the `steamID64 (Dec)`.
 
 2. Install [Node.js](https://nodejs.org/en/download/prebuilt-binaries).
 
