@@ -5,8 +5,8 @@ const port = 3000;
 const axios = require('axios');
 
 
-const API_KEY = ''; //goto  https://steamcommunity.com/dev/apikey	
-const STEAM_ID = '';               //goto  https://www.steamidfinder.com/
+const API_KEY = '8543E0CEDE7389690291CF79216D31DB'; //goto  https://steamcommunity.com/dev/apikey	
+const STEAM_ID = '76561198396788215';               //goto  https://www.steamidfinder.com/
 app.use(express.static(path.join(__dirname, '.')));
 
 app.post('/fetchGames', async (req, res) => {
@@ -22,8 +22,8 @@ app.post('/fetchGames', async (req, res) => {
         });
 
          // Extract appid values from the response
-        // const games = response.data.response.games;
-         const games = response.data.response.games.filter(game => game.playtime_forever > 5);
+        const games = response.data.response.games;
+       //  const games = response.data.response.games.filter(game => game.playtime_forever > 5);
          const gameImages = games.map(game => `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`);
          
          res.json({ status: 'success', gameImages });

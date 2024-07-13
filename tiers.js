@@ -14,8 +14,8 @@
 
 'use strict';
 
-const MAX_NAME_LEN = 200;
-const DEFAULT_TIERS = ['S','A','B','C','D','E','F'];
+const MAX_NAME_LEN = 240;
+const DEFAULT_TIERS = ['Masterpiece','Great','Good','Mid','Bad','No .. just no','Haven\'t\nPlayed /\nFinished'];
 const TIER_COLORS = [
 	// from S to F
 	'#ff6666',
@@ -23,9 +23,9 @@ const TIER_COLORS = [
 	'#f4d95b',
 	'#66ff66',
 	'#58c8f4',
-	'#5b76f4',
 	'#f45bed'
 ];
+// later the colors needs updating
 
 let unique_id = 0;
 
@@ -114,6 +114,7 @@ window.addEventListener('load', () => {
 	make_accept_drop(document.querySelector('.images'));
 
 	bind_title_events();
+	resize_headers();
 
 	document.getElementById('load-img-input').addEventListener('input', (evt) => {
 		// @Speed: maybe we can do some async stuff to optimize this
@@ -126,8 +127,14 @@ window.addEventListener('load', () => {
 				unsaved_changes = true;
 			});
 			reader.readAsDataURL(file);
+		
+		
+		
 		}
-	});
+	}
+
+
+);
 
 	// Allow copy-pasting image from clipboard
 	document.onpaste = (evt) => {
@@ -378,6 +385,8 @@ function resize_headers() {
 	for (let [other_header, _i2, _l2] of all_headers) {
 		other_header.style.minWidth = `${max_width}px`;
 	}
+	//other_header.style.paddingRight = "50px"; 
+	//other_header.style.paddingLeft = "50px"; 
 }
 
 function add_row(index, name) {

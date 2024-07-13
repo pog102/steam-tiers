@@ -44,6 +44,7 @@ body {
 	font-family: sans-serif;
 	border: 0;
 	padding: 0;
+	
 }
 
 .tierlist div.row {
@@ -70,6 +71,7 @@ span.header {
 	justify-content: center;
 	align-self: stretch;
 	cursor: pointer;
+	padding: 0px 5px 0px 5px;
 }
 
 span.header label {
