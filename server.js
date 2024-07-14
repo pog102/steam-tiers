@@ -5,7 +5,7 @@ const port = 3000;
 const axios = require('axios');
 
 
-const API_KEY = '8543E0CEDE7389690291CF79216D31DB'; //goto  https://steamcommunity.com/dev/apikey	
+const API_KEY = ''; //goto  https://steamcommunity.com/dev/apikey	
 const STEAM_ID = '76561198396788215';               //goto  https://www.steamidfinder.com/
 app.use(express.static(path.join(__dirname, '.')));
 
