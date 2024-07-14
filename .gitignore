@@ -1,4 +1,1 @@
-img/
-images.js
-*.swp
-server.js
+./server.js
