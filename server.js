@@ -6,7 +6,7 @@ const axios = require('axios');
 
 
 const API_KEY = ''; //goto  https://steamcommunity.com/dev/apikey	
-const STEAM_ID = '76561198396788215';               //goto  https://www.steamidfinder.com/
+const STEAM_ID = '76561198396788215';     //goto  https://www.steamidfinder.com/
 app.use(express.static(path.join(__dirname, '.')));
 
 app.post('/fetchGames', async (req, res) => {
