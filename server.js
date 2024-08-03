@@ -6,7 +6,7 @@ const axios = require('axios');
 
 
 const API_KEY = ''; //goto  https://steamcommunity.com/dev/apikey	
-const STEAM_ID = '76561198396788215';     //goto  https://www.steamidfinder.com/
+const STEAM_ID = '76561198396788215';     //goto   https://www.steamidfinder.com/
 app.use(express.static(path.join(__dirname, '.')));
 
 app.post('/fetchGames', async (req, res) => {
@@ -20,13 +20,13 @@ app.post('/fetchGames', async (req, res) => {
                 
             }
         });
-
+        res.json(response.data.response);
          // Extract appid values from the response
-        const games = response.data.response.games;
+        //const games = response.data.response.games;
        //  const games = response.data.response.games.filter(game => game.playtime_forever > 5);
-         const gameImages = games.map(game => `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`);
+        // const gameImages = games.map(game => `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`);
          
-         res.json({ status: 'success', gameImages });
+        // res.json({ status: 'success', gameImages });
     } catch (error) {
         console.error(error);
         res.status(500).json({ status: 'error', message: 'Error fetching owned games.' });

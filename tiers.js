@@ -65,23 +65,60 @@ function soft_reset_list() {
 }
 document.getElementById('button-steam').addEventListener('click', async () => {
     try {
-        const response = await fetch('/fetchGames', { method: 'POST' });
+		const response = await fetch('/fetchGames', { method: 'POST' });
         const result = await response.json();
-        console.log('Fetched Steam game images:', result.gameImages);
-        
-        // Clear existing images in the untiered pool
-        const imagesContainer = document.querySelector('.images');
-        imagesContainer.innerHTML = '';
 
-        // Append fetched images to the untiered pool
-        result.gameImages.forEach(imageUrl => {
-            const img = create_img_with_src(imageUrl);
-            imagesContainer.appendChild(img);
-        });
+        const uniqueGames = filterUniqueGames(result.games);
+        displayGames(uniqueGames);
+        console.log('Check server console for owned games data');
     } catch (error) {
         console.error('Error fetching owned games:', error);
     }
 });
+
+function filterUniqueGames(games) {
+    const seenSteamIDs = new Set();
+    return games.filter(game => {
+        if (seenSteamIDs.has(game.appid)) {
+            return false;
+        } else {
+            seenSteamIDs.add(game.appid);
+            return true;
+        }
+    });
+}
+
+function displayGames(games) {
+    const imagesContainer = document.querySelector('.images');
+    imagesContainer.innerHTML = '';
+
+    games.forEach(game => {
+        if (game.playtime_forever > 0) {
+            const imgSrc = `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`;
+            const img = create_img_with_src(imgSrc);
+            imagesContainer.appendChild(img);
+        }
+    });
+
+    filterTierlistUniqueImages();
+}
+
+function filterTierlistUniqueImages() {
+    const tierlistImages = new Set();
+    const untieredImages = document.querySelector('.images');
+
+    // Collect all images in the tierlist
+    tierlist_div.querySelectorAll('img').forEach(img => {
+        tierlistImages.add(img.src);
+    });
+
+    // Filter out images that are already in the tierlist
+    untieredImages.querySelectorAll('img').forEach(img => {
+        if (tierlistImages.has(img.src)) {
+            img.parentNode.removeChild(img);
+        }
+    });
+}
 
 function create_img_with_src(src) {
     let img = document.createElement('img');
@@ -283,7 +320,10 @@ function load_tierlist(serialized_tierlist) {
 
 function end_drag(evt) {
 	dragged_image?.classList.remove("dragged");
-	dragged_image = null;
+    dragged_image = null;
+    evt.stopPropagation();
+    return false;
+
 }
 
 window.addEventListener('mouseup', end_drag);
