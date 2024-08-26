@@ -93,11 +93,11 @@ function displayGames(games) {
     imagesContainer.innerHTML = '';
 
     games.forEach(game => {
-        if (game.playtime_forever > 0) {
+      //  if (game.playtime_forever > 0) {
             const imgSrc = `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`;
             const img = create_img_with_src(imgSrc,game.name);
             imagesContainer.appendChild(img);
-        }
+       // }
     });
 
     filterTierlistUniqueImages();
