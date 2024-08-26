@@ -95,7 +95,7 @@ function displayGames(games) {
     games.forEach(game => {
         if (game.playtime_forever > 0) {
             const imgSrc = `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`;
-            const img = create_img_with_src(imgSrc);
+            const img = create_img_with_src(imgSrc,game.name);
             imagesContainer.appendChild(img);
         }
     });
@@ -120,9 +120,12 @@ function filterTierlistUniqueImages() {
     });
 }
 
-function create_img_with_src(src) {
+function create_img_with_src(src, name='game') {
     let img = document.createElement('img');
     img.src = src;
+	img.alt = name;
+	img.title = name;
+
     img.style.userSelect = 'none';
     img.classList.add('draggable');
     img.draggable = true;
@@ -234,9 +237,11 @@ window.addEventListener('load', () => {
 	});
 });
 
-function create_img_with_src(src) {
+function create_img_with_src(src, name='game') {
 	let img = document.createElement('img');
 	img.src = src;
+	img.alt = name;
+	img.title = name;
 	img.style.userSelect = 'none';
 	img.classList.add('draggable');
 	img.draggable = true;
